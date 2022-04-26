@@ -33,6 +33,7 @@
     "@hapi/inert": "^6.0.5",
     "@hapi/vision": "^6.1.0",
     "dotenv": "^14.3.2",
+    "fs": "0.0.1-security",
     "handlebars": "^4.7.7",
     "hapi-auth-jwt2": "^10.2.0",
     "hapi-swagger": "^14.2.4",

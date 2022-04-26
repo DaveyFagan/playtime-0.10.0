@@ -1,10 +1,20 @@
+import * as fs from "fs";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 
 export const accountsController = {
   index: {
     auth: false,
-    handler: function (request, h) {
+    handler: async function (request, h) {
+      const users = await db.userStore.getAllUsers()
+      const noOfUsers = users.length;
+      fs.writeFile("/home/ec2-user/noofusers.txt",parseInt(noOfUsers, 10).toString(), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    
+        console.log("The file was saved!");
+    }); 
       return h.view("main", { title: "Welcome to Playlist" });
     },
   },
